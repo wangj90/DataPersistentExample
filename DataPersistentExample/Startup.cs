@@ -21,9 +21,9 @@ namespace DataPersistentExample
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IRepository<BusinessObject>, AdoNetRepository<BusinessObject>>();
-            services.AddTransient<IRepository<BusinessObject>, DapperRepository<BusinessObject>>();
-            services.AddTransient<IRepository<BusinessObject>, EfRepository<BusinessObject>>();
+            services.AddTransient(typeof(IRepository<>), typeof(AdoNetRepository<>));
+            services.AddTransient(typeof(IRepository<>), typeof(DapperRepository<>));
+            services.AddTransient(typeof(IRepository<>), typeof(EfRepository<>));
             services.AddDbContext<EfDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("Ef"));
