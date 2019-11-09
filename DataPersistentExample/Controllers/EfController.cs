@@ -16,7 +16,7 @@ namespace DataPersistentExample.Controllers
 
         public EfController(IEnumerable<IRepository<BusinessObject>> repositorys)
         {
-            _repository = repositorys.FirstOrDefault(o => o.GetType().Name.Contains("EfRepository")); ;
+            _repository = repositorys.FirstOrDefault(o => o.GetType().Equals(typeof(EfRepository<BusinessObject>))); ;
         }
 
         // GET: api/Ef

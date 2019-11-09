@@ -16,7 +16,7 @@ namespace DataPersistentExample.Controllers
 
         public DapperController(IEnumerable<IRepository<BusinessObject>> repositorys)
         {
-            _repository = repositorys.FirstOrDefault(o => o.GetType().Name.Contains("DapperRepository"));
+            _repository = repositorys.FirstOrDefault(o => o.GetType().Equals(typeof(DapperRepository<BusinessObject>)));
         }
 
         // GET: api/Dapper

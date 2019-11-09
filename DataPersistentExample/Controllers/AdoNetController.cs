@@ -16,7 +16,7 @@ namespace DataPersistentExample.Controllers
 
         public AdoNetController(IEnumerable<IRepository<BusinessObject>> repositorys)
         {
-            _repository = repositorys.FirstOrDefault(o => o.GetType().Name.Contains("AdoNetRepository"));
+            _repository = repositorys.FirstOrDefault(o => o.GetType().Equals(typeof(AdoNetRepository<BusinessObject>)));
         }
 
         // GET: api/AdoNet
